@@ -44,7 +44,7 @@
         .theme-toggle {
             margin-top: 20px;
             padding: 8px 16px;
-            font-family: "Georgia", "Times New Roman", serif;
+            font-family: "Georgia", serif;
             font-size: 0.9rem;
             background: transparent;
             color: #2e2e2e;
@@ -63,29 +63,33 @@
         }
 
         .entry h2 {
-            margin-bottom: 5px;
             font-weight: normal;
-            font-size: 1.4rem;
         }
 
-        .date {
+        .read-more-btn {
+            margin-top: 10px;
+            padding: 6px 14px;
+            font-family: "Georgia", serif;
             font-size: 0.85rem;
-            color: #999;
-            margin-bottom: 15px;
+            background: transparent;
+            border: 1px solid #ccc;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
-        .entry p {
-            margin-bottom: 15px;
+        .read-more-btn:hover {
+            background: #f0ece3;
         }
 
-        a {
-            color: #3e5c76;
-            text-decoration: none;
-            border-bottom: 1px solid #3e5c76;
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
         }
 
-        a:hover {
-            opacity: 0.7;
+        .collapsible-content.open {
+            max-height: 2000px;
         }
 
         footer {
@@ -100,114 +104,8 @@
             border-top: 1px solid #eee;
             margin: 40px 0;
         }
-    </style>
-</head>
-<body>
 
-    <div class="container">
-
-        <header>
-            <h1>Analysis of GGWO <br>booklets, sermons, doctrines</h1>
-            <p>Thoughts, reflections, and links</p>
-            <button class="theme-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
-        </header>
-
-        <!-- Journal Entry Start -->
-        <div class="entry">
-            <h2>Booklet: A heart after God by Carl Stevens</h2>
-            <div class="date">February 11, 2026</div>
-            <p>
-                prompt: analyze this text, for bad doctrine, bad culture and too much authority
-            </p>
-            <p>
-                
-            </p>
-            <p>
-                <h1>Doctrinal & Cultural Analysis</h1>
-
-
-<h3>B. Leader immunity logic</h3>
-<ul>
-<li>Leadership decisions treated as unquestionable</li>
-<li>Judgment deferred entirely to God</li>
-<li>Institutional accountability removed</li>
-</ul>
-
-
-<p class="red-flag">Red flag: Enables abusive systems to survive.</p>
-
-
-<h3>C. Interpretive authority claim</h3>
-<ul>
-<li>Defensive posture</li>
-<li>Preemptive shutdown of critique</li>
-<li>Elevates personal interpretation</li>
-</ul>
-
-
-<p>Biblical model: Berean testing (Acts 17:11).</p>
-<p class="red-flag">Red flag: Discourages discernment.</p>
-
-
-<div class="section-divider"></div>
-
-
-<h2>Summary Table</h2>
-<table>
-<tr><th>Area</th><th>Assessment</th></tr>
-<tr><td>Core theology</td><td>Evangelical but distorted</td></tr>
-<tr><td>Grace teaching</td><td>Unbalanced, dangerous</td></tr>
-<tr><td>View of sin</td><td>Minimizing harm</td></tr>
-<tr><td>View of authority</td><td>Over-protective of leaders</td></tr>
-<tr><td>View of suffering</td><td>Spiritually shaming</td></tr>
-<tr><td>Accountability</td><td>Theologically undermined</td></tr>
-<tr><td>Cultural outcome</td><td>Fear, silence, leader immunity</td></tr>
-</table>
-
-
-<div class="section-divider"></div>
-
-
-<h2>Final Verdict</h2>
-<ul>
-<li>Sounds spiritual</li>
-<li>Quotes Scripture heavily</li>
-<li>Feels sincere</li>
-</ul>
-
-
-<p><strong>But it creates conditions where abuse can flourish:</strong></p>
-<ul>
-<li>Leaders are shielded</li>
-<li>Victims are spiritualized into silence</li>
-<li>Repentance is privatized</li>
-<li>Authority is absolutized</li>
-<li>Discernment is discouraged</li>
-</ul>
-
-
-<p><strong>Conclusion:</strong> Good theology, poorly balanced, can become bad culture.</p>
-            </p>
-        </div>
-        <!-- Journal Entry End -->
-
-        <hr>
-
-        <!-- Add new entries below by copying the block above -->
-
-        <footer>
-            © 2026 Analysis of GGWO booklets, sermons, doctrines
-        </footer>
-
-    </div>
-
-    <script>
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-        }
-    </script>
-
-    <style>
+        /* Dark Mode */
         .dark-mode {
             background-color: #111;
             color: #e0e0e0;
@@ -218,20 +116,75 @@
             color: #e0e0e0;
         }
 
-        .dark-mode a {
-            color: #9ecbff;
-            border-bottom: 1px solid #9ecbff;
-        }
-
-        .dark-mode .theme-toggle {
+        .dark-mode .theme-toggle,
+        .dark-mode .read-more-btn {
             color: #e0e0e0;
             border: 1px solid #555;
         }
 
-        .dark-mode .theme-toggle:hover {
+        .dark-mode .theme-toggle:hover,
+        .dark-mode .read-more-btn:hover {
             background: #2a2a2a;
         }
     </style>
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>Analysis of GGWO <br>booklets, sermons, doctrines</h1>
+        <p>Thoughts, reflections, and links</p>
+        <button class="theme-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    </header>
+
+    <div class="entry">
+        <h2>Example Entry Title</h2>
+        <p>
+            This is the introduction or summary of the analysis.
+            It stays visible at all times.
+        </p>
+
+        <button class="read-more-btn" onclick="toggleReadMore(this)">
+            Read More
+        </button>
+
+        <div class="collapsible-content">
+            <p>
+                This section contains the full analysis. You can place
+                long theological breakdowns, citations, Scripture,
+                structured arguments, or tables here.
+            </p>
+            <p>
+                Add as much HTML as you want inside this block.
+            </p>
+        </div>
+    </div>
+
+    <hr>
+
+    <footer>
+        © 2026 Analysis of GGWO booklets, sermons, doctrines
+    </footer>
+
+</div>
+
+<script>
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+    }
+
+    function toggleReadMore(button) {
+        const content = button.nextElementSibling;
+        content.classList.toggle("open");
+
+        if (content.classList.contains("open")) {
+            button.textContent = "Read Less";
+        } else {
+            button.textContent = "Read More";
+        }
+    }
+</script>
 
 </body>
 </html>
